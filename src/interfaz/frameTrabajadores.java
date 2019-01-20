@@ -315,7 +315,7 @@ public class frameTrabajadores extends javax.swing.JFrame {
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         listmTrabajadores.guardarDatos();
-        JOptionPane.showMessageDialog(null, "Guardado satisfactoriamente."); 
+        JOptionPane.showMessageDialog(null, "Guardado satisfactoriamente.", "GUARDADO", JOptionPane.INFORMATION_MESSAGE); 
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
@@ -328,7 +328,7 @@ public class frameTrabajadores extends javax.swing.JFrame {
             jListTrabajadores.repaint();
             dialog.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "No se puede modificar ninguna entrada porque la lista esta vacia");
+            JOptionPane.showMessageDialog(null, "No se puede modificar ninguna entrada porque la lista esta vacia", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }  
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
@@ -456,7 +456,7 @@ public class frameTrabajadores extends javax.swing.JFrame {
             try {
                 return listaTrabajadores.get(i);
             } catch (IndexOutOfBoundsException e) {
-                JOptionPane.showMessageDialog(null, "No se puede modificar ninguna entrada porque la lista esta vacia");
+                JOptionPane.showMessageDialog(null, "No se puede modificar ninguna entrada porque la lista esta vacia", "ERROR", JOptionPane.INFORMATION_MESSAGE);
             }
             return listaTrabajadores.get(i);
         }
