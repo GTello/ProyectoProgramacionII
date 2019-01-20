@@ -2,6 +2,8 @@ package interfaz;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class dialogLogin extends javax.swing.JDialog {
 
@@ -50,6 +52,11 @@ public class dialogLogin extends javax.swing.JDialog {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icono-salir.png"))); // NOI18N
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,6 +123,17 @@ public class dialogLogin extends javax.swing.JDialog {
             e.getStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JFrame frameConfirmar = new JFrame();
+        String[] opcion = new String[2];
+        opcion[0] = "Si";
+        opcion[1] = "No";
+        int confirmar = JOptionPane.showOptionDialog(frameConfirmar.getContentPane(),"¿Desea salir del programa?","Confirmar", 0,JOptionPane.INFORMATION_MESSAGE, null, opcion, null);
+        
+        if (confirmar == 0)
+            System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
         
