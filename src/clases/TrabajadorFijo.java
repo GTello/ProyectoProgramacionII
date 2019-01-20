@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class TrabajadorFijo extends Trabajador implements Serializable {
     
-    private int tiempoServicio; // plus del 0.02% de su salario base por cada a�o de la organizaci�n
+    private int tiempoServicio;
 
     public TrabajadorFijo(int tiempoServicio, String pNombre, String pCedula, String pDireccion, String pCargo, double pSalariobase) {
         super(pNombre, pCedula, pDireccion, pCargo, pSalariobase);
@@ -19,7 +19,7 @@ public class TrabajadorFijo extends Trabajador implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + "[TRABAJADOR FIJO]" + " Tiempo de Servicio: " + tiempoServicio;
+        return super.toString() + "[TRABAJADOR FIJO]" + " Años de Servicio: " + tiempoServicio;
     }
 
     public int getTiempoServicio() {
