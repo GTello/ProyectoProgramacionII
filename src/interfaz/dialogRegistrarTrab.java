@@ -225,12 +225,12 @@ public class dialogRegistrarTrab extends javax.swing.JDialog {
             }          
         } else if (jComboBoxTipoTrab.getSelectedItem() == "Fijo") {     
             t = new TrabajadorFijo((int) jSpinnerATrabajo.getValue(), jTextNombrApellido.getText(), 
-                    jTextNroCedula.getText(), jTextDireccion.getText(), jTextCargo.getText(), Integer.parseInt(jTextSalario.getText()));
+                    jTextNroCedula.getText(), jTextDireccion.getText(), jTextCargo.getText(), Double.parseDouble(jTextSalario.getText()));
             JOptionPane.showMessageDialog(null, "Se ha creado un nuevo Trabajador FIJO");
             setVisible(false);
         } else {
             t = new TrabajadorAPrueba((int) jSpinnerATrabajo.getValue(), jTextNombrApellido.getText(),
-                    jTextNroCedula.getText(), jTextDireccion.getText(), jTextCargo.getText(), Integer.parseInt(jTextSalario.getText()));
+                    jTextNroCedula.getText(), jTextDireccion.getText(), jTextCargo.getText(), Double.parseDouble(jTextSalario.getText()));
             JOptionPane.showMessageDialog(null, "Se ha creado un nuevo Trabajador A PRUEBA");
             setVisible(false);
         }
