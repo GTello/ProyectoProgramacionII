@@ -39,7 +39,7 @@ public class frameTrabajadores extends javax.swing.JFrame {
         int x = ((int)screen.getScreenSize().getWidth()  - getWidth())  / 2;
         int y = ((int)screen.getScreenSize().getHeight() - getHeight()) / 2;
 	setLocation(x, y);
-        listmTrabajadores.addTrabajador(new TrabajadorAPrueba(3, "Alberto Lopez", "0927472423", "Alborada 4ta Etapa", "Jefe de Ventas", 2000));
+        //listmTrabajadores.addTrabajador(new TrabajadorAPrueba(3, "Alberto Lopez", "0927472423", "Alborada 4ta Etapa", "Jefe de Ventas", 2000));
         jListTrabajadores.setModel(listmTrabajadores);
     }
 
