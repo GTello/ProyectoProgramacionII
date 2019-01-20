@@ -219,9 +219,13 @@ public class dialogRegistrarTrab extends javax.swing.JDialog {
             t.setCargo(jTextCargo.getText());
             t.setSalariobase((int) Double.parseDouble(jTextSalario.getText()));
             if (t instanceof TrabajadorFijo) {
-                ((TrabajadorFijo)t).setTiempoServicio((int) jSpinnerATrabajo.getValue()); 
+                ((TrabajadorFijo)t).setTiempoServicio((int) jSpinnerATrabajo.getValue());
+                JOptionPane.showMessageDialog(null, "Se modifico la entrada de Trabajador FIJO");
+                setVisible(false);
             } else {
                 ((TrabajadorAPrueba)t).setHorasExtra((int) jSpinnerATrabajo.getValue());
+                JOptionPane.showMessageDialog(null, "Se modifico la entrada de Trabajador A PRUEBA");
+                setVisible(false);
             }          
         } else if (jComboBoxTipoTrab.getSelectedItem() == "Fijo") {     
             t = new TrabajadorFijo((int) jSpinnerATrabajo.getValue(), jTextNombrApellido.getText(), 
