@@ -454,6 +454,11 @@ public class frameTrabajadores extends javax.swing.JFrame {
 
         @Override
         public Object getElementAt(int i) {
+            try {
+                return listaTrabajadores.get(i);
+            } catch (IndexOutOfBoundsException e) {
+                JOptionPane.showMessageDialog(null, "No se puede modificar ninguna entrada porque la lista esta vacia");
+            }
             return listaTrabajadores.get(i);
         }
       
