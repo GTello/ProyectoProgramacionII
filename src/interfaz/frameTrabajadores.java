@@ -204,14 +204,15 @@ public class frameTrabajadores extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabelCantTrabTotal)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabelCantTrabPrueba)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel4)
-                                .addComponent(jLabelCantTrabFijos)))
+                                .addComponent(jLabelCantTrabFijos))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabelCantTrabTotal)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabelCantTrabPrueba)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -314,8 +315,12 @@ public class frameTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCargarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        listmTrabajadores.guardarDatos();
-        JOptionPane.showMessageDialog(null, "Guardado satisfactoriamente.", "GUARDADO", JOptionPane.INFORMATION_MESSAGE); 
+        if (listmTrabajadores.getSize() > 0) {
+            listmTrabajadores.guardarDatos();
+            JOptionPane.showMessageDialog(null, "Guardado satisfactoriamente.", "GUARDADO", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Lista esta vacia", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
