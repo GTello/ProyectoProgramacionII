@@ -221,23 +221,21 @@ public class dialogRegistrarTrab extends javax.swing.JDialog {
             if (t instanceof TrabajadorFijo) {
                 ((TrabajadorFijo)t).setTiempoServicio((int) jSpinnerATrabajo.getValue());
                 JOptionPane.showMessageDialog(null, "Se modifico la entrada de Trabajador FIJO");
-                setVisible(false);
             } else {
                 ((TrabajadorAPrueba)t).setHorasExtra((int) jSpinnerATrabajo.getValue());
-                JOptionPane.showMessageDialog(null, "Se modifico la entrada de Trabajador A PRUEBA");
-                setVisible(false);
-            }          
+                JOptionPane.showMessageDialog(null, "Se modifico la entrada de Trabajador A PRUEBA"); 
+            }
+            setVisible(false);
         } else if (jComboBoxTipoTrab.getSelectedItem() == "Fijo") {     
             t = new TrabajadorFijo((int) jSpinnerATrabajo.getValue(), jTextNombrApellido.getText(), 
                     jTextNroCedula.getText(), jTextDireccion.getText(), jTextCargo.getText(), Double.parseDouble(jTextSalario.getText()));
             JOptionPane.showMessageDialog(null, "Se ha creado un nuevo Trabajador FIJO");
-            setVisible(false);
         } else {
             t = new TrabajadorAPrueba((int) jSpinnerATrabajo.getValue(), jTextNombrApellido.getText(),
                     jTextNroCedula.getText(), jTextDireccion.getText(), jTextCargo.getText(), Double.parseDouble(jTextSalario.getText()));
             JOptionPane.showMessageDialog(null, "Se ha creado un nuevo Trabajador A PRUEBA");
-            setVisible(false);
         }
+        setVisible(false);
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
