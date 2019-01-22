@@ -11,8 +11,8 @@ aumentar su salario a razón de $5 por cada hora acumulada.
 - Genere una interfaz gráfica simple que permita la entrada de tabajadores
 - Permita que el programa almacene y lea la información registrada desde un fichero
 - Permita eliminar un registro o modificarlo almacenando los cambios en el fichero
-- Muestre en pantalla constantemente la cantidad de trabajadores total, el salario total de la Empresa y la cantidad de trabajadores por tipo 
-  asi como la suma del salario por cada tipo de trabajador.
+- Muestre en pantalla constantemente la cantidad de trabajadores total, el salario total de la Empresa y 
+  la cantidad de trabajadores por tipo asi como la suma del salario por cada tipo de trabajador.
  */
 package interfaz;
 
@@ -39,7 +39,7 @@ public class frameTrabajadores extends javax.swing.JFrame {
         int x = ((int)screen.getScreenSize().getWidth()  - getWidth())  / 2;
         int y = ((int)screen.getScreenSize().getHeight() - getHeight()) / 2;
 	setLocation(x, y);
-        //listmTrabajadores.addTrabajador(new TrabajadorAPrueba(3, "Alberto Lopez", "0927472423", "Alborada 4ta Etapa", "Jefe de Ventas", 2000));
+        listmTrabajadores.addTrabajador(new TrabajadorAPrueba(3, "Alberto Lopez", "0927472423", "Alborada 4ta Etapa", "Jefe de Ventas", 2000));
         jListTrabajadores.setModel(listmTrabajadores);
     }
 
@@ -299,42 +299,40 @@ public class frameTrabajadores extends javax.swing.JFrame {
             listmTrabajadores.addTrabajador(dialog.getTrabajador());
         
         dialog.dispose();
+        calcularTotales();
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
     private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCargarActionPerformed
         listmTrabajadores.cargarDatos();
-        jListTrabajadores.repaint();
-        
+        jListTrabajadores.repaint();    
+        calcularTotales();
+    }//GEN-LAST:event_jButtonCargarActionPerformed
+
+    private void calcularTotales() {
         jLabelCantTrabTotal.setText(String.valueOf(listmTrabajadores.getSize()));
         jLabelCantTrabFijos.setText(String.valueOf(listmTrabajadores.getSizeTrabFijos()));
         jLabelCantTrabPrueba.setText(String.valueOf(listmTrabajadores.getSizeTrabPrueba()));
         
         jLabelSalarioTrabPrueba.setText(String.valueOf(listmTrabajadores.getTotalSalarioTrabPrueba()));
         jLabelSalarioTrabFijos.setText(String.valueOf(listmTrabajadores.getTotalSalarioTrabFijo()));
-        jLabelSalarioTotalEmpresa.setText(String.valueOf(listmTrabajadores.getTotalSalarioEmp()));     
-    }//GEN-LAST:event_jButtonCargarActionPerformed
-
+        jLabelSalarioTotalEmpresa.setText(String.valueOf(listmTrabajadores.getTotalSalarioEmp()));
+    }     
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        if (listmTrabajadores.getSize() > 0) {
             listmTrabajadores.guardarDatos();
             JOptionPane.showMessageDialog(null, "Guardado satisfactoriamente.", "GUARDADO", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Lista esta vacia", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
-        if (listmTrabajadores.getSize() != 0) {
-            dialogRegistrarTrab dialog = new dialogRegistrarTrab(this, true);
-            dialog.setTrabajador((Trabajador)listmTrabajadores.getElementAt(jListTrabajadores.getSelectedIndex()));    /////
+        dialogRegistrarTrab dialog = new dialogRegistrarTrab(this, true);
+        dialog.setTrabajador((Trabajador)listmTrabajadores.getElementAt(jListTrabajadores.getSelectedIndex()));    /////
 
-            dialog.setVisible(true);  
+        dialog.setVisible(true);  
         
-            jListTrabajadores.repaint();
-            dialog.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "No se puede modificar ninguna entrada porque la lista esta vacia", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-        }  
+        jListTrabajadores.repaint();
+           
+        dialog.dispose();
+        calcularTotales();
+        //JOptionPane.showMessageDialog(null, "No se puede modificar ninguna entrada porque la lista esta vacia", "ERROR", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
@@ -343,8 +341,10 @@ public class frameTrabajadores extends javax.swing.JFrame {
         opcion[0] = "Si";
         opcion[1] = "No";
         int confirmar = JOptionPane.showOptionDialog(frameConfirmar.getContentPane(),"¿Desea eliminar al trabajador seleccionado?","Confirmar", 0,JOptionPane.INFORMATION_MESSAGE, null, opcion, null);
-        if (confirmar == 0)
+        if (confirmar == 0) {
             listmTrabajadores.delTrabajador(jListTrabajadores.getSelectedIndex());
+            calcularTotales();
+        }    
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
