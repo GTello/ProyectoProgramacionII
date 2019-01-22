@@ -3,7 +3,7 @@ package clases;
 import java.io.Serializable;
 
 public class TrabajadorFijo extends Trabajador implements Serializable {
-    
+        
     private int tiempoServicio;
 
     public TrabajadorFijo(int tiempoServicio, String pNombre, String pCedula, String pDireccion, String pCargo, double pSalariobase) {
